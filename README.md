@@ -28,7 +28,7 @@ You can load illumioWorkbench into Pharo using Metacello. Just open a playground
 
 ```Smalltalk
 Metacello new
-  repository: 'github://migchiel/illuStrator:main/releases/latest';
+  repository: 'github://migchiel/illumioWorkbench:main/releases/latest';
   baseline: 'illumioWorkbench';
   load.
 ```
