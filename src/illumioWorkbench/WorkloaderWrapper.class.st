@@ -69,6 +69,7 @@ WorkloaderWrapper >> executeCommand: aCommandString [
 	Transcript show: 'Using workloader to execute: "', aCommandString asString, '"';cr.
 	OSSUnixSubprocess new
 		command: workloaderPath, '/workloader';
+		workingDirectory: self workloaderPath;
 		arguments: aCommandString;
 		redirectStdout;
 		runAndWaitOnExitDo: [ :process :outString  |

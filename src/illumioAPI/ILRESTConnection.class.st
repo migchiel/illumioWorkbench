@@ -27,7 +27,7 @@ ILRESTConnection class >> getDefinedPCES [
 
 	| connections |
 	connections := PPYAMLGrammar new parse:
-		               'pce.yaml' asFileReference contents.
+		               '/Users/mdejong/workloader/pce.yaml' asFileReference contents.
 	^ (connections select: [ :conn | conn isDictionary ]) collect: [ :pce | pce at: 'fqdn' ]
 ]
 
