@@ -12,7 +12,7 @@ BaselineOfillumioWorkbench >> baseline: spec [
 		spec
 			package: 'illumioWorkbench';
 			package: 'illumioWorkbench-Tests'
-			with: [ spec requires: #( 'illuStrator' ) ];
+			with: [ spec requires: #( 'illumioWorkbench' ) ];
 	
 			baseline: 'PetitParser'
 			with: [ 
