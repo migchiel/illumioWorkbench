@@ -7,6 +7,7 @@ Class {
 { #category : #baselines }
 BaselineOfillumioWorkbench >> baseline: spec [
 
+	
 	<baseline>
 	spec for: #common do: [ 
 		spec
