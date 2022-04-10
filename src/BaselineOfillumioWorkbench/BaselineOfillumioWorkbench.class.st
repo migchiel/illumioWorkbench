@@ -13,12 +13,14 @@ BaselineOfillumioWorkbench >> baseline: spec [
 			package: 'illumioWorkbench';
 			package: 'illumioWorkbench-Tests'
 			with: [ spec requires: #( 'illumioWorkbench' ) ];
-			baseline: 'PetitParser'
-			with: [ 
-				spec repository: 'github://moosetechnology/PetitParser:v3.x.x/src' ];
 			baseline: 'PetitParser2Core'
+			with: [ spec repository: 'github://kursjan/petitparser2' ];
+			baseline: 'PetitParser2Languages'
 			with: [ spec repository: 'github://kursjan/petitparser2' ];
 			package: 'illumioAPI';
 			baseline: 'NeoCSV'
-			with: [ spec repository: 'github://svenvc/NeoCSV/repository' ]]
+			with: [ spec repository: 'github://svenvc/NeoCSV/repository' ];
+			baseline: 'OSSubprocess' with: [ 
+				spec repository:
+						'github://pharo-contributions/OSSubprocess:master/repository' ]]
 ]
