@@ -19,10 +19,6 @@ BaselineOfillumioWorkbench >> baseline: spec [
 			baseline: 'PetitParser2Core'
 			with: [ spec repository: 'github://kursjan/petitparser2' ];
 			package: 'illumioAPI';
-			baseline: 'ZincHTTPComponents'
-			with: [ spec repository: 'github://svenvc/zinc/repository' ];
 			baseline: 'NeoCSV'
-			with: [ spec repository: 'github://svenvc/NeoCSV/repository' ];
-			baseline: 'Roassal3'
-			with: [ spec repository: 'github://ObjectProfile/Roassal3' ] ]
+			with: [ spec repository: 'github://svenvc/NeoCSV/repository' ]]
 ]
