@@ -28,10 +28,10 @@ WorkloaderWrapper >> cleanup [
 	outputFile exists ifTrue: [ outputFile delete ].
 	
 	"Get all the unmanaged workloads in a CSV file"
-	self executeCommand: 'wkld-export --unmanaged-only --output-file ', outputFile fullName.
+	self executeCommand: 'wkld-export --unmanaged-only --output-file ', '"', outputFile fullName, '"'.
 	"Delete the unmanaged workloads using the workloader delete command and mapping to the href field of the previously exported workload data, but only if there are workloads"
 	outputFile exists ifTrue: [ 
-		self executeCommand: 'delete --header href ', outputFile fullName, ' --update-pce --no-prompt'
+		self executeCommand: 'delete --header href ', '"', outputFile fullName, '"', ' --update-pce --no-prompt'
 	].
 
 	"Delete any previous out and input files"
@@ -39,10 +39,10 @@ WorkloaderWrapper >> cleanup [
 	outputFile exists ifTrue: [ outputFile delete ].
 	
 	"Get all the iplists in a CSV file"
-	self executeCommand: 'ipl-export --output-file ', outputFile fullName.
+	self executeCommand: 'ipl-export --output-file ', '"', outputFile fullName, '"'.
 	"Delete the iplists using the workloader delete command and mapping to the href field of the previously exported iplist data, but only if there are iplists"
 	outputFile exists ifTrue: [ 
-		self executeCommand: 'delete --header href ', outputFile fullName, ' --provision --update-pce --no-prompt'
+		self executeCommand: 'delete --header href ', '"', outputFile fullName, '"', ' --provision --update-pce --no-prompt'
 	].
 	
 	"Delete the unused labels"
