@@ -75,7 +75,7 @@ WorkloaderWrapper >> executeCommand: aCommandString [
 		redirectStdout;
 		runAndWaitOnExitDo: [ :process :outString  |
 		Transcript show: outString]"
-^ LibC resultOfCommand: ('cd ', workloaderPath, ';./workloader ', aCommandString)
+^ LibC resultOfCommand: ('cd "', workloaderPath, '";./workloader ', aCommandString)
 ]
 
 { #category : #'as yet unclassified' }
@@ -111,7 +111,7 @@ WorkloaderWrapper >> importFlows: aFlowCollection [
 	 	nextPut: #(src dst port proto);
     	addFields: #(src dst port proto);
     	nextPutAll: aFlowCollection].
-	^ self executeCommand: 'flow-import ', outputFile fullName
+	^ self executeCommand: 'flow-import ', '"', outputFile fullName, '"'
 ]
 
 { #category : #'as yet unclassified' }
@@ -129,7 +129,7 @@ WorkloaderWrapper >> importIPLists: anIPListCollection [
 	 	nextPut: #(name description include exclude fqdns external_data_set external_data_ref href);
     	addFields: #(name description include exclude fqdns external_data_set external_data_ref href);
     	nextPutAll: anIPListCollection ].
-	^ self executeCommand: 'ipl-import ', outputFile fullName, ' --provision --no-prompt --update-pce'
+	^ self executeCommand: 'ipl-import ', '"', outputFile fullName, '"', ' --provision --no-prompt --update-pce'
 ]
 
 { #category : #'as yet unclassified' }
@@ -144,7 +144,7 @@ WorkloaderWrapper >> importWorkloads: aWorkloadCollection [
     	addFields: #(hostname name role application environment location interfacesAsString operatingSystemDetail operatingSystem);
     	nextPutAll: aWorkloadCollection].
 	
-	^ self executeCommand: 'wkld-import --umwl ', outputFile fullName, ' --no-prompt --update-pce --debug'
+	^ self executeCommand: 'wkld-import --umwl ', '"', outputFile fullName, '"', ' --no-prompt --update-pce --debug'
 ]
 
 { #category : #initialization }
