@@ -16,11 +16,12 @@ WorkloadTest >> setUp [
 
 ]
 
-{ #category : #test }
+{ #category : #tests }
 WorkloadTest >> testInterfaceName [
-	self assert: [  workload interfaceName = 'eth'].
+
+	self assert: workload interfaceName equals: 'eth'.
 	workload interfaceName: 'iface0'.
-	self assert: [ workload interfaceName = 'iface0']
+	self assert: workload interfaceName equals: 'iface0'
 ]
 
 { #category : #test }

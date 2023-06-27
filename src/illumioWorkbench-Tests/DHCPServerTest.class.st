@@ -21,43 +21,42 @@ DHCPServerTest >> setUp [
 
 ]
 
-{ #category : #test }
+{ #category : #tests }
 DHCPServerTest >> testAddRangeCidr [
+
 	| subnet |
-	
 	subnet := dhcp getSubnet: 'VLAN'.
-	self assert: subnet first = '192.168.1.1'.
-	self assert: subnet last = '192.168.1.254'.
-	self assert: subnet broadcast = '192.168.1.255'.
-	self assert: subnet usableHosts = 254.
-	
+	self assert: subnet first equals: '192.168.1.1'.
+	self assert: subnet last equals: '192.168.1.254'.
+	self assert: subnet broadcast equals: '192.168.1.255'.
+	self assert: subnet usableHosts equals: 254.
+
 	subnet := dhcp getSubnet: 'Goofy'.
-	self assert: subnet first = '188.12.0.1'.
-	self assert: subnet last = '188.12.1.254'.
-	self assert: subnet broadcast = '188.12.1.255'.
-	self assert: subnet usableHosts = 510.
-	
+	self assert: subnet first equals: '188.12.0.1'.
+	self assert: subnet last equals: '188.12.1.254'.
+	self assert: subnet broadcast equals: '188.12.1.255'.
+	self assert: subnet usableHosts equals: 510.
+
 	subnet := dhcp getSubnet: 'VPN'.
-	self assert: subnet first = '172.16.0.1'.
-	self assert: subnet last = '172.16.255.254'.
-	self assert: subnet broadcast = '172.16.255.255'.
-	self assert: subnet usableHosts = 65534.
-	
+	self assert: subnet first equals: '172.16.0.1'.
+	self assert: subnet last equals: '172.16.255.254'.
+	self assert: subnet broadcast equals: '172.16.255.255'.
+	self assert: subnet usableHosts equals: 65534.
+
 	subnet := dhcp getSubnet: 'Wappie'.
-	self assert: subnet first = '18.31.0.1'.
-	self assert: subnet last = '18.31.127.254'.
-	self assert: subnet broadcast = '18.31.127.255'.
-	self assert: subnet usableHosts = 32766.
+	self assert: subnet first equals: '18.31.0.1'.
+	self assert: subnet last equals: '18.31.127.254'.
+	self assert: subnet broadcast equals: '18.31.127.255'.
+	self assert: subnet usableHosts equals: 32766.
 
 	subnet := dhcp getSubnet: 'DC1'.
-	self assert: subnet first = '32.0.0.1'.
-	self assert: subnet last = '63.255.255.254'.
-	self assert: subnet broadcast = '63.255.255.255'.
-	self assert: subnet usableHosts = 536870910.
-
+	self assert: subnet first equals: '32.0.0.1'.
+	self assert: subnet last equals: '63.255.255.254'.
+	self assert: subnet broadcast equals: '63.255.255.255'.
+	self assert: subnet usableHosts equals: 536870910
 ]
 
-{ #category : #test }
+{ #category : #tests }
 DHCPServerTest >> testGetLease [
 
 	self assert: true
